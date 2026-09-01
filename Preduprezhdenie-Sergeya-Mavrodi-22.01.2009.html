@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предупреждение Сергея Мавроди, 22 января 2009 года</title>
+  <style>
+:root {
+  --bg: #f9f7f2;
+  --surface: #ffffff;
+  --text: #1f1f1f;
+  --text-muted: #5e5952;
+  --accent: #2a4a6f;
+  --accent-hover: #1e3552;
+  --border: #d9d4c8;
+  --shadow: rgba(42, 74, 111, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1816;
+    --surface: #22201d;
+    --text: #e8e4d9;
+    --text-muted: #a39a8c;
+    --accent: #8aa4c2;
+    --accent-hover: #a3b8d1;
+    --border: #3a3630;
+    --shadow: rgba(0, 0, 0, 0.25);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Макет === */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 50px 70px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 40px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+/* Скрываем скроллбар в сайдбаре для красоты */
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin-bottom: 10px; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s, padding-left 0.2s;
+  line-height: 1.4;
+}
+.toc a:hover { 
+  color: var(--accent); 
+  padding-left: 4px;
+}
+.toc .toc-h3 { 
+  padding-left: 15px; 
+  font-size: 0.85rem; 
+  margin-top: -4px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 { 
+  font-size: 2.6rem; 
+  line-height: 1.15; 
+  margin-bottom: 1.2em; 
+  letter-spacing: -0.02em;
+}
+h2 { 
+  font-size: 1.8rem; 
+  margin: 1.8em 0 0.8em; 
+  border-bottom: 2px solid var(--border); 
+  padding-bottom: 0.3em; 
+}
+h3 { font-size: 1.4rem; margin: 1.5em 0 0.6em; }
+p { margin: 0 0 1.2em; }
+a { 
+  color: var(--accent); 
+  text-decoration: none; 
+  font-weight: 500; 
+  border-bottom: 1px solid transparent; 
+  transition: all 0.2s; 
+}
+a:hover { 
+  border-bottom-color: var(--accent); 
+  color: var(--accent-hover); 
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2em 0;
+  padding: 1.5em 2em 1.5em 3.5em;
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--text-muted);
+  position: relative;
+}
+blockquote::before {
+  content: "“";
+  font-size: 5em;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  color: var(--border);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+blockquote p { position: relative; z-index: 1; margin-bottom: 0; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 2.5em 0; text-align: center; }
+figure img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 16px var(--shadow); 
+}
+figcaption { margin-top: 0.8em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.5em 0;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2em 0;
+  padding: 1.5em 1.8em;
+  border-radius: 12px;
+  border-left: 5px solid var(--accent);
+  background: var(--bg);
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { border-left-color: #4a6fa5; background: #e8eef7; }
+.callout-amber  { border-left-color: #b38b4d; background: #f5f0e6; }
+.callout-purple { border-left-color: #9b6b8a; background: #f7eef4; }
+.callout-green  { border-left-color: #4a8a6f; background: #e8f3ed; }
+.callout-neutral { border-left-color: #6b6257; background: #f0e9dc; }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: #1e2a3a; border-left-color: #7aa0d1; }
+  .callout-amber  { background: #2f2a1f; border-left-color: #d4b37a; }
+  .callout-purple { background: #2a2430; border-left-color: #c48fb3; }
+  .callout-green  { background: #1f2a24; border-left-color: #7ab89a; }
+  .callout-neutral { background: #2c2a26; border-left-color: #a89f90; }
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; }
+  .sidebar { width: 100%; position: static; margin-top: 20px; }
+  .content { padding: 40px 24px; }
+  h1 { font-size: 2.2rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <main class="content">
+      <article>
+        <h1>Предупреждение Сергея Мавроди, 22 января 2009 года</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="pM3l"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><hr/><blockquote><a name="yRpV"></a><!--[--><!--]--><!--[-->Международные резервы РФ упали ниже $400 млрд<!--]--></blockquote><blockquote><a name="nb2z"></a><!--[--><!--]--><!--[-->Объем международных резервов РФ по состоянию на 16 января 2009г. составлял 396,2 млрд долл., сообщает департамент внешних и общественных связей ЦБ РФ. На 9 января 2009г. он составлял 426,5 млрд долл.<!--]--></blockquote><blockquote><a name="0uRv"></a><!--[--><!--]--><!--[-->Таким образом, международные резервы РФ на прошлой неделе сократились на 30,3 млрд долл. Для многих российских экспертов такой результат был вполне ожидаемым.<!--]--></blockquote><blockquote><a name="6ULZ"></a><!--[--><!--]--><!--[-->Дело в том, что российский Центробанк, несмотря на проводимую девальвацию рубля, вынужден тратить средства резервов на поддержку национальной валюты, продавая валюту США. Таким образом, уменьшение объема международных резервов произошло из-за валютных интервенций Центробанка, а также негативной переоценки части резервных активов, номинированных в евро.<!--]--></blockquote><blockquote><a name="Dy6M"></a><!--[--><!--]--><!--[-->По оценкам участников рынка, 12 января ЦБ потратил около 3-4 млрд долл. на интервенции, 15 января около 7-8 млрд долл. Общие расходы ЦБР на валютные интервенции на прошлой неделе оцениваются аналитиками UBS в размере 26 млрд долл.<!--]--></blockquote><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="i5mR"></a><!--[--><!--]--><!-- --><!--[--><img src="fe86fb8c-21ce-43ba-a715-9e440b46c1ce.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="g7WI"></a><!--[--><!--]--><!--[--><em>Вот и всё. На поддержание нынешнего, искусственно завышенного курса рубля у ЦБ уходит $26 млрд. в неделю (!). Надолго хватит этих $400 млрд.? А ведь все деньги угрохать на бессмысленное совершенно продолжение «валютных интервенций» власти не могут. У них есть и другие проблема. Куча, причём.</em><!--]--></p><p><a name="bn8Z"></a><!--[--><!--]--><!--[--><em>Итак, месяц-полтора от силы. Я на днях говорил про апрель − какой там «апрель»?! Конец февраля-начало марта МАКСИМУМ. (А может, и раньше.) После чего ЦБ вынужден будет уйти с валютного рынка и бросить всё на произвол судьбы. Хочет он того или нет. Деньги у него просто кончатся! И вы проснётесь вдруг в одно прекрасное утро и обнаружите с изумлением, переходящим в шок, что доллар-то теперь стоит… тысячу! Или две!! Или пять!!! Соответственно, и продукты все. Тоже… тысячу, и две, и пять. Хлеб, молоко, мясо… Всё!!! А зарплата ваша, между прочим, не увеличится ни на рубль. Как вам платили сто рублей, так и будут платить. (Если вообще будут.) А кушать-то, между прочим, каждый день ведь надо… Про что я и писал. Глад и мор.</em><!--]--></p><p><a name="eUYF"></a><!--[--><!--]--><!--[--><em>Немедленно!!! Немедленно покупайте доллары! Забирайте деньги из всех этих банков и покупайте наличные доллары! Руководители этих банков − обычные мошенники. Они обманывают вас, убеждая в нынешней, ужасающей совершенно ситуации хранить у них деньги в рублях под какие-то там 10 (или сколько?) процентов. Убеждают, пользуясь вашей экономической безграмотностью и неосведомлённостью. Злоупотребляют вашим доверием. Это и есть мошенничество. Самое настоящее, чистой воды. Их судить всех за это надо! Ещё раз повторяю: покупайте наличные доллары. Пока ещё не поздно. Завтра уже может быть поздно.</em><!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

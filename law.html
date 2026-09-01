@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>МММ 2.0 ЗАКОННА: видеокомментарий юриста</title>
+  <style>
+:root {
+  --bg: #f9f7f2;
+  --surface: #ffffff;
+  --text: #1f1f1f;
+  --text-muted: #5e5952;
+  --accent: #2a4a6f;
+  --accent-hover: #1e3552;
+  --border: #d9d4c8;
+  --shadow: rgba(42, 74, 111, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1816;
+    --surface: #22201d;
+    --text: #e8e4d9;
+    --text-muted: #a39a8c;
+    --accent: #8aa4c2;
+    --accent-hover: #a3b8d1;
+    --border: #3a3630;
+    --shadow: rgba(0, 0, 0, 0.25);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Макет === */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 50px 70px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 40px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+}
+
+/* Скрываем скроллбар в сайдбаре для красоты */
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc {
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px var(--shadow);
+}
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; }
+.toc li { margin-bottom: 10px; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  transition: color 0.2s, padding-left 0.2s;
+  line-height: 1.4;
+}
+.toc a:hover { 
+  color: var(--accent); 
+  padding-left: 4px;
+}
+.toc .toc-h3 { 
+  padding-left: 15px; 
+  font-size: 0.85rem; 
+  margin-top: -4px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 { 
+  font-size: 2.6rem; 
+  line-height: 1.15; 
+  margin-bottom: 1.2em; 
+  letter-spacing: -0.02em;
+}
+h2 { 
+  font-size: 1.8rem; 
+  margin: 1.8em 0 0.8em; 
+  border-bottom: 2px solid var(--border); 
+  padding-bottom: 0.3em; 
+}
+h3 { font-size: 1.4rem; margin: 1.5em 0 0.6em; }
+p { margin: 0 0 1.2em; }
+a { 
+  color: var(--accent); 
+  text-decoration: none; 
+  font-weight: 500; 
+  border-bottom: 1px solid transparent; 
+  transition: all 0.2s; 
+}
+a:hover { 
+  border-bottom-color: var(--accent); 
+  color: var(--accent-hover); 
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2em 0;
+  padding: 1.5em 2em 1.5em 3.5em;
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+  font-style: italic;
+  color: var(--text-muted);
+  position: relative;
+}
+blockquote::before {
+  content: "“";
+  font-size: 5em;
+  position: absolute;
+  top: -15px;
+  left: 10px;
+  color: var(--border);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+blockquote p { position: relative; z-index: 1; margin-bottom: 0; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 2.5em 0; text-align: center; }
+figure img { 
+  max-width: 100%; 
+  height: auto; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 16px var(--shadow); 
+}
+figcaption { margin-top: 0.8em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 1.5em 0;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px var(--shadow);
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2em 0;
+  padding: 1.5em 1.8em;
+  border-radius: 12px;
+  border-left: 5px solid var(--accent);
+  background: var(--bg);
+  box-shadow: 0 2px 12px var(--shadow);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { border-left-color: #4a6fa5; background: #e8eef7; }
+.callout-amber  { border-left-color: #b38b4d; background: #f5f0e6; }
+.callout-purple { border-left-color: #9b6b8a; background: #f7eef4; }
+.callout-green  { border-left-color: #4a8a6f; background: #e8f3ed; }
+.callout-neutral { border-left-color: #6b6257; background: #f0e9dc; }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: #1e2a3a; border-left-color: #7aa0d1; }
+  .callout-amber  { background: #2f2a1f; border-left-color: #d4b37a; }
+  .callout-purple { background: #2a2430; border-left-color: #c48fb3; }
+  .callout-green  { background: #1f2a24; border-left-color: #7ab89a; }
+  .callout-neutral { background: #2c2a26; border-left-color: #a89f90; }
+}
+
+hr {
+  border: none;
+  height: 2px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; }
+  .sidebar { width: 100%; position: static; margin-top: 20px; }
+  .content { padding: 40px 24px; }
+  h1 { font-size: 2.2rem; }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <main class="content">
+      <article>
+        <h1>МММ 2.0 ЗАКОННА: видеокомментарий юриста</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в<strong> <a href="legal.html"><!--[-->раздел "МММ 2.0 ЗАКОННА"<!--]--></a></strong><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="lTzO"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><p><a name="XuOQ"></a><!--[--><!--]--><!--[--><strong>Деятельность участников глобальной системы взаимопомощи МММ 2.0 законна и поощряется Конституцией РФ</strong><!--]--></p><p><a name="2KJF"></a><!--[--><!--]--><!--[-->Сперва видеокомментарий юриста послушайте: <!--]--></p><figure class="m_column"><a name="o9Ny"></a><!--[--><!--]--><!--[--><div class="video-container"><iframe allow="accelerometer; autoplay; encrypted-media; clipboard-write; gyroscope; picture-in-picture; web-share; camera" allowfullscreen="" class="embed-youtube" frameborder="0" id="o9Ny" scrolling="no" src="https://www.youtube.com/embed/Yr7GPwPRy08?autoplay=0&amp;loop=0&amp;mute=0"></iframe></div><!--]--><!-- --><!--[--><!--[--><!-- --><!--]--><!--]--></figure><div class="callout callout-green"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Согласно <a href="https://www.consultant.ru/document/cons_doc_LAW_28399/fe434e420c3130424bbee0b97bc794f0e96c3081/"><!--[--><strong>ст.39 ч.3 Конституции РФ,</strong><!--]--></a> поощряются добровольное социальное страхование, создание дополнительных форм социального обеспечения и благотворительность.<!--]--></p><!--]--></div><p><a name="cAqE"></a><!--[--><!--]--><!--[-->Вашему вниманию выдержка из <strong>постатейного комментария к Конституции Российской Федерации, подготовленного Институтом законодательства и сравнительного правоведения при Правительстве Российской Федерации:</strong><!--]--></p><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->"Таким образом, <strong>предусматривается возможность по инициативе</strong> субъектов Федерации, органов местного самоуправления, трудовых коллективов, общественных объединений либо <strong>граждан за счет собственных средств предоставлять материальную поддержку отдельным социальным группам или гражданам в дополнение к социальному обеспечению, гарантируемому ч. 1 ст. 39"</strong> (cам документ можете скачать и Внимательно почитать по <a href="https://docs.google.com/document/d/1FyLkniISsa5qTrgqWG88wDZkhsd7U3_x/edit?usp=sharing&amp;ouid=110706004024202627756&amp;rtpof=true&amp;sd=true"><!--[--><strong>ССЫЛКЕ</strong><!--]--></a>)<!--]--></p><!--]--></div><p><a name="CFMN"></a><!--[--><!--]--><!--[-->Говоря проще, рядовые граждане по своей инициативе за счёт собственных средств оказывают безвозмездную материальную помощь другим точно таким же рядовым гражданам. Люди просто помогают друг другу ― всё логично и совершенно естественно! И даже в Конституции РФ об этом написано.<!--]--></p><p><a name="7kk2"></a><!--[--><!--]--><!--[-->Вот что такое Система МММ 2.0 и почему её нельзя закрыть. Вообще, такие действия, как "закрыть" и "запретить", к нашему неформальному сообществу не применимы в принципе. Сами подумайте: люди оказывают друг другу напрямую безвозмездную помощь. Помогают друг другу в столь непростые времена! Что в этом в принципе может быть плохого?! Как это вообще можно запрещать?! Или закрывать?!..<!--]--></p><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong>Помогать друг другу ― нужно!</strong> Это как раз то, чего катастрофически не хватает современному разрозненному обществу – реального единства и взаимопомощи. Этакая общенациональная идея объединения людей ради достойной жизни, воплощенная на практике в нашей Системе. И главный закон страны об этом совершенно однозначно говорит: у нас есть такое конституционное право ― помогать друг другу! Следовательно, МММ 2.0 абсолютно законна. И участвуя здесь, – безвозмездно переводя свои деньги напрямую другим людям, – Вы никакой закон не нарушаете.<!--]--></p><!--]--></div><p><a name="sBg3"></a><!--[--><!--]--><!--[-->Да и как нас можно "закрыть"!? Никакой организации формально нет ― нечего тут закрывать.<!--]--></p><p><a name="o2jA"></a><!--[--><!--]--><!--[-->Другое дело, почему МММ 2.0 рано или поздно захотят закрыть или сделать лично меня вне закона? И до нас эти "закрыватели" и "запрещатели" доберутся, тут я иллюзий не питаю. Это вопрос времени. Да потому, что подобная система взаимодействия между людьми не выгодна ни олигархам, ни банкам, ни страховым компаниям, ни в конечном итоге продажным властям, которые дорвались до власти только ради наполнения своих карманов.<!--]--></p><p><a name="DTEB"></a><!--[--><!--]--><!--[-->Непродажным же и мудрым властям такая Система выгодна, поскольку она напрямую реализует первоочередную задачу любых настоящих властей: <strong>обеспечение благосостояния и достойной жизни населения своей страны</strong> (раз наши власти не способны выполнить свою основную функцию, то мы сами себя будем обеспечивать). Аминь.<!--]--></p><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->P.S. 🎯 <strong>Целью Глобальной Системы Взаимопомощи МММ 2.0 является создание неформального сообщества людей по всему миру, которые помогают друг другу своими свободными деньгами исключительно на доверии.</strong> Без формальных договоров и бюрократии. «Народный банк», в котором деньги работают на людей, а не люди на деньги. Без посредников, без кредитов, без депозитов – без ростовщиков! Система, в которой люди за счет собственных средств обеспечивают друг другу <a href="https://hightech.plus/2021/03/05/podvedeni-predvaritelnie-rezultati-kaliforniiskogo-eksperimenta-s-bod"><!--[--><strong>базовый безусловный доход</strong><!--]--></a> – уверенность в завтрашнем дне! Сегодня помог ты – завтра помогут тебе.<!--]--></p><!--]--></div><p><a name="jcAy"></a><!--[--><!--]--><!--[--><strong>Мы Можем Многое! </strong><!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в<strong> <a href="legal.html"><!--[-->раздел "МММ 2.0 ЗАКОННА"<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
