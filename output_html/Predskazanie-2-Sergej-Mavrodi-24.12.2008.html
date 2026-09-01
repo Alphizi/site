@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Предсказание-2, Сергей Мавроди, 24 декабря 2008 год</title>
+  <style>
+:root {
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* === Макет === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.toc a:hover {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+.toc .toc-h3 {
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+  transition: all 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
+  background: var(--bg);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  position: relative;
+}
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 3em 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 2em 0;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
+  h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main class="content">
+      <article>
+        <h1>Предсказание-2, Сергей Мавроди, 24 декабря 2008 год</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="A3mc"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><hr/><p><a name="zoH9"></a><!--[--><!--]--><!--[-->Итак, сейчас уже грандиозные и поистине апокалиптические масштабы кризиса для всех практически становятся очевидными. Всё чаще и чаще звучат даже немыслимые ещё недавно совсем заявления, что только-де новая мировая война спасёт США от глобальной катастрофы и т.п.<!--]--></p><p><a name="9lxT"></a><!--[--><!--]--><!--[-->В этой связи возникает интересный вопрос. Хорошо. Мировая война. Ужасно, конечно, но что это, собственно, такое с точки зрения экономики и чем она так уж для неё полезна?<!--]--></p><hr/><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="9wBS"></a><!--[--><!--]--><!-- --><!--[--><img src="94913485-416f-409a-bf16-302204105369.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><hr/><p><a name="lnWI"></a><!--[--><!--]--><!--[-->На первый взгляд, вроде бы, ответ очевиден. Гигантские правительственные заказы для промышленности, новые рабочие места и пр. и пр. Нет даже смысла углубляться.<!--]--></p><p><a name="lprk"></a><!--[--><!--]--><!--[-->Но тогда сразу же возникает следующий вопрос. Если это действительно так, и рецепт возрождения общества и выхода из кризиса настолько прост, то почему бы им в действительности и не воспользоваться?<!--]--></p><p><a name="dPYW"></a><!--[--><!--]--><!--[-->Только зачем нужна именно РЕАЛЬНАЯ война? Реальные смерти, кровь и прочие страсти и кошмары? Объявите виртуальную войну. Кому угодно! Виртуальному противнику, инопланетянам, да не суть! Главное, делайте заказы промышленности, пусть она работает на полную мощность, выпускает военную технику, а вы просто отвозите её на полигоны, взрывайте там, сжигайте и заказывайте новую. В чём, собственно, отличие ТАКОЙ «войны» от реальной? С точки зрения экономики − ни в чём.<!--]--></p><p><a name="GMaV"></a><!--[--><!--]--><!--[-->А между тем интуитивно ясно, что рецепт этот работать не будет. Почему? Вот! Мы и подошли к главному. Да потому, что дело-то вовсе не в войне. Война − это просто фасад, декорации, за которыми скрывается суть. А она-то вот − поистине ужасна. До такой степени, что взглянуть на неё люди просто не решаются и в безотчётном страхе отводят глаза.<!--]--></p><p><a name="NlU2"></a><!--[--><!--]--><!--[-->Увы! В силу целого ряда причин, даже и не важно уже сейчас, каких именно (это и бездарное руководство, и «головокружение от успехов», и чисто стратегические ошибки и просчёты, и пр., и пр.), но мы к настоящему моменту проели и растранжирили почти всё, что создали для нас предки. Мы − это не Россия, это весь мир!<!--]--></p><p><a name="wQ8j"></a><!--[--><!--]--><!--[-->И теперь мы должны за это расплачиваться. Всё это восстанавливать и вновь создавать. Отказывая себе во всём! Впереди − годы и годы лишений, недоедания, нищеты и т.д. и т.п. Мы, наши дети и внуки − всё это потерянные поколения, которые обречены всем этим заниматься. Лишь для того только, чтобы какие-то будущие поколения вновь всё проели и растранжирили и начали всё сначала. Это и есть суть. И это и есть − история.<!--]--></p><p><a name="wOyH"></a><!--[--><!--]--><!--[-->А война, повторяю, это всего лишь декорации. Они могут быть любыми. Не обязательно война. К примеру, в СССР − это были стройки века, целина и т.п. Просто нужна идея, сверх-идея! ради которой все бы объединились и сплотились в трудный момент! Ради которой согласились бы страдать, голодать, холодать и пр. и пр. А уж какая именно она будет, эта идея, сиё абсолютно несущественно. «Победа над врагом» ли, «коммунизм» или что-то ещё. Не имеет значения! Главное, чтобы все работали, работали, работали! Причём, добросовестно и практически бесплатно. Годами! Десятилетиями!! Целыми поколениями!!!<!--]--></p><p><a name="RD4y"></a><!--[--><!--]--><!--[-->(Иное дело, что её очень трудно найти, ТАКУЮ идею, но это уже другой вопрос. Вот «победа над врагом» − тут всё ясно, а другую-то − как отыщешь? :-))<!--]--></p><p><a name="N0jV"></a><!--[--><!--]--><!--[-->И это ещё всё − самый радужный и оптимистический сценарий. Основанный на вере, что нынешний кризис − один из многих, и он тоже когда-нибудь закончится. Что, на самом-то деле, далеко не очевидно.<!--]--></p><p><a name="B7E1"></a><!--[--><!--]--><!--[-->Ладно. На этом пока и закончим, пожалуй. Будет настроение − продолжу. Насчёт идеи, в частности. Поскольку это, собственно, тема для отдельного разговора. :-))<!--]--></p><p><a name="8vgx"></a><!--[--><!--]--><!--[--><em>Сергей Мавроди, 24 декабря 2008 год</em><!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
