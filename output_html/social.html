@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Проблема социальной несправедливости, или Что производит МММ (отрывок из книги "История первой пирамиды")</title>
+  <style>
+:root {
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* === Макет === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.toc a:hover {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+.toc .toc-h3 {
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+  transition: all 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
+  background: var(--bg);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  position: relative;
+}
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 3em 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 2em 0;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
+  h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main class="content">
+      <article>
+        <h1>Проблема социальной несправедливости, или Что производит МММ (отрывок из книги "История первой пирамиды")</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="98x3"></a><!--[--><!--]--><!-- --><!--[--><img src="Apruf.jpg"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="ILh0"></a><!--[--><!--]--><!--[--><strong>Проблема социальной справедливости, точнее, социальной несправедливости, существуют практически в любом известном нам обществе.</strong> При любом общественном укладе. Всегда почему-то оказывается так, что у одних есть всё, а у других – ничего. Почему? Потому что по природе своей человек эгоистичен. Если он что-то делает, то делает это, прежде всего, для себя. Именно поэтому-то и существует частная собственность.<!--]--></p><figure class="m_original" itemscope="" itemtype="http://schema.org/ImageObject"><a name="WYCO"></a><!--[--><!--]--><!-- --><!--[--><img src="Apruf.jpg"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="UOsP"></a><!--[--><!--]--><!--[-->Если бы это было не так, то и никакой проблемы богатых и бедных не существовало бы. Люди складывали бы все свои деньги, образно говоря, в общий котёл, и потом каждый брал бы оттуда по мере необходимости.<!--]--></p><p><a name="oeoV"></a><!--[--><!--]--><!--[-->Однако этого не происходит. И все попытки насильственно установить такой порядок вещей (все эти социализмы-коммунизмы) неизменно терпели неудачу. Даже в семье, в кругу самых близких людей, такое положение дел (общая касса) обычно рано или поздно приводит к конфликтам, трениям и разного рода скандалам. Почему так происходит? Неважно. Это не имеет значения. Главное, что это именно так. Люди так устроены, и это следует принять просто как должное. Как некое начальное условие при постановке задачи.<!--]--></p><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Итак, что же мы имеем? Денег в обществе достаточно, проблема вовсе не в их отсутствии, <strong>проблема в их неравномерном распределении</strong>. Причём, неравномерность эта изначально заложена в самой природе любого человеческого общества. Устранить её в принципе невозможно.<!--]--></p><!--]--></div><p><a name="xiBo"></a><!--[--><!--]--><!--[-->У любого богатого человека всегда есть так называемые "мёртвые деньги" – деньги, которые он фактически никогда не трогает. Ну скажем, если в банке у него сто миллионов долларов, зарабатывает он в месяц сто тысяч и сто тысяч же тратит. Тогда эти сто миллионов и есть те самые «мёртвые деньги», о которых я говорю.<!--]--></p><p><a name="3TiB"></a><!--[--><!--]--><!--[-->Так нельзя ли этот момент попытаться как-то использовать? Ведь вовсе не требуется, чтобы эти сто миллионов действительно были, достаточно, чтобы человек верил, что они у него есть. Всё равно же он их никогда не использует.<!--]--></p><p><a name="vJ7n"></a><!--[--><!--]--><!--[-->Если он всё-таки потребует когда-нибудь эти свои сто миллионов, ему их немедленно отдадут. Из каких средств? Из средств других, таких же, как он. Речь идёт о том, чтобы задействовать мёртвые деньги и сделать их живыми. <strong>По сути, это обычная задача по оптимизации ресурсов.</strong><!--]--></p><p><a name="CWt6"></a><!--[--><!--]--><!--[-->Представьте себе, что вы владелец ресторана. У вас есть сто постоянных клиентов, которые дополнительно платят вам за то, что для них всегда должен быть свободный столик и что их обслужат немедленно, когда бы они ни появились.<!--]--></p><p><a name="fs9p"></a><!--[--><!--]--><!--[-->Прийти каждый из них может в любой момент, но реально вы знаете, что один из них приходит всегда только по понедельникам ровно в 9 часов, другой – с 10-ти до 11-ти и т.д. Так что одновременно больше двух клиентов никогда не бывает. Они к вам десять лет уже ходят, и за всё это время больше двух одновременно никогда не было.<!--]--></p><p><a name="YSvk"></a><!--[--><!--]--><!--[-->Спрашивается, сколько свободных столиков вам нужно для этих ста клиентов постоянно держать? Разве тоже сто? Нет, всего лишь два. Ну, максимум, три- четыре - на всякий случай, хотя и это уже, в сущности, перебор. Перестраховка. И сколько официантов? Тоже ведь не сто?<!--]--></p><p><a name="n4Oi"></a><!--[--><!--]--><!--[-->И разве вы обманываете своих клиентов, когда говорите им: «Приходите в любое момент! Свободный столик всегда ждёт вас!»<!--]--></p><p><a name="VH7S"></a><!--[--><!--]--><!--[-->Хотя прекрасно знаете, что если явятся одновременно все – да даже не все, а хотя бы четверо - разразится скандал. А?<!--]--></p><p><a name="tuiq"></a><!--[--><!--]--><!--[-->Точно так же и здесь. Нет никакой необходимости держать постоянно наготове сто миллионов долларов – сто столиков и сто официантов. Достаточно двух-трёх.<!--]--></p><p><a name="0iKg"></a><!--[--><!--]--><!--[-->Я всегда испытываю чувство сильнейшего раздражения, когда слышу: «пирамида…», «обман…», «денег на всех не хватило бы…» Да «денег на всех» и не должно хватать! Иначе пришлось бы держать постоянно сто свободных столиков и сто изнывающих от безделья официантов. В то время как двух-трёх вполне достаточно.<!--]--></p><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Одним словом, когда я всё это осознал, то понял, что задача перераспределения общественных ресурсов в пользу малообеспеченных слоёв населения вполне решаема.<!--]--></p><!--]--></div><p><a name="nbZu"></a><!--[--><!--]--><!--[-->На первом этапе необходимо привлечь эти ресурсы.<!--]--></p><p><a name="OtSA"></a><!--[--><!--]--><!--[-->Надо было обдумать, как потом свернуть систему, мягко приземлиться.<!--]--></p><p><a name="fEwv"></a><!--[--><!--]--><!--[-->«Так вот, план моих дальнейших действий я объявил ещё тогда, в 1994 году… Итак, было два пути.<!--]--></p><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong>ПУТЬ ПЕРВЫЙ.</strong> Просто скупить на аккумулированные средства акции наиболее прибыльных западных компаний и обменять их акции на билеты «МММ». То есть свернуть проект, сделав всех россиян собственниками и владельцами акций западных компаний. Фактически провести реальную приватизацию страны и установить в России НАРОДНЫЙ КАПИТАЛИЗМ. Это можно было сделать в любой момент.<!--]--></p><!--]--></div><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong>ПУТЬ ВТОРОЙ.</strong> Скупить, скажем, на Нью-Йоркской фондовой бирже акции какой-либо западной компании и начать работать с ними по схеме «МММ». Покупать и продавать по постоянно повышающимся ценам. Эта схема прекрасно работала бы там. Никакие ограничения и запреты западного фондового рынка ей бы не помешали. Она бы просто прошла сквозь них, как нож сквозь масло! Никто бы даже не понял, что происходит. За короткое время можно было бы собрать средства практически всего Мира, загнать их в Россию, расплатиться по всем долгам российского «МММ» и закрыть её…<!--]--></p><!--]--></div><p><a name="KDH0"></a><!--[--><!--]--><!--[-->Короче, катастрофы и естественной смерти системы МММ я бы дожидаться не стал. Пути выхода были. Собственно, я склонялся ко второму пути, просто мне не хватило немного времени. Буквально месяца-двух… К слову сказать, сама жизнь убедительно доказала верность моих тогдашних идей. Я совершенно правильно «угадал» направление развития всего мирового фондового рынка. Куда именно, в какую сторону он двинется. Сейчас, к примеру, на нью-йоркской фондовой бирже существует целый специальный сектор акций компаний «новой экономики» — NASDAQ. Его индекс публикуется и отслеживается во всех информационных биржевых сводках наряду с традиционным индексом DJ – индексом, отражающим колебания курсов акций «обычных» компаний. Чем отличаются «новые» акции от «обычных»? Да как раз тем, что покупаются они исключительно ради спекуляции! В надежде на дальнейший рост цен. Ведь дивидендов их эмитенты не платят, и все это знают. Иное дело, виртуальные компании. Существующие в виртуальном мире. Где никогда не происходит ничего плохого. Где нет ни войн, ни кризисов, ни банковских скандалов. Где всё всегда спокойно. Где цены на акции только растут. Это и есть глобальная система перераспределения мировых ресурсов в пользу самых бедных, малообеспеченных слоёв населения. Ведь только они будут забирать деньги. Поскольку постоянно в них нуждаются. Богатые же будут только считать свои виртуальные прибыли, которые им реально не нужны. Нужно только сознание, что они есть. Уверенность. Вера. Всеобщий виртуальный мир.<!--]--></p><div class="callout callout-green"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Это и есть тот рай на Земле, то идеальное и справедливое общество, о котором грезили гуманисты всех времён и которое в 20-м веке пытались огнём и мечом насадить сначала коммунисты, а потом фашисты. И которое пытался в 1994 году построить я — Сергей Мавроди один, в одиночку, в отдельно взятой России.<!--]--></p><!--]--></div><figure class="m_original" itemscope="" itemtype="http://schema.org/ImageObject"><a name="KT1U"></a><!--[--><!--]--><!-- --><!--[--><img src="Apruf.jpg"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><h2><a name="Книгу-целиком-скачайте-по-ссылке-и-Внимательно-прочтите."></a><!--[--><!--]--><!--[-->Книгу целиком скачайте <a href="https://www.dropbox.com/scl/fo/6uq8slszl1shzyjjqqaks/ACrPOKxBo_DG8MWZO5yI9OY?rlkey=pugky6gyfwsaddavudg0fbmrt&amp;dl=0"><!--[-->по ссылке<!--]--></a> и Внимательно прочтите.<!--]--></h2><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

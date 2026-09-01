@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Бот: инструкция пользования</title>
+  <style>
+:root {
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* === Макет === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.toc a:hover {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+.toc .toc-h3 {
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+  transition: all 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
+  background: var(--bg);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  position: relative;
+}
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 3em 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 2em 0;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
+  h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main class="content">
+      <article>
+        <h1>Бот: инструкция пользования</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong><a href="Main.html"><!--[-->НА ГЛАВНУЮ<!--]--></a></strong><!--]--></p><!--]--></div><hr/><p><a name="a2eI"></a><!--[--><!--]--><!--[--><strong>Перешлите памятку себе в Избранное. Давайте инструкцию новичкам!</strong><!--]--></p><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong>Участвовать в МММ 2.0 строго через телеграм-бот, адрес которого Вам сообщат <a href="https://t.me/mmm_help_bot?start=teletype"><!--[-->в телеграм-боте<!--]--></a> </strong>– 🔔 Поставьте звуковое оповещение на этот бот, чтобы не пропустить сообщения 🔔<!--]--></p><!--]--></div><div class="callout callout-green"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->❗️Прежде всего, прочтите <strong><a href="Main.html"><!--[-->ПРЕДУПРЕЖДЕНИЕ и «правила»<!--]--></a></strong><!--]--></p><!--]--></div><p><a name="WbAh"></a><!--[--><!--]--><!--[--><strong>ВАЖНО:</strong> Если нижнее меню с кнопками в боте не видно (иногда бывает), – введите в боте команду /start<!--]--></p><p><a name="XAQ3"></a><!--[--><!--]--><!--[-->🤖 В нижнем меню бота Вы увидите две кнопки: "↗️💸<strong>ОКАЗАТЬ помощь</strong>" и "↘️💰<strong>ЗАПРОСИТЬ помощь"</strong>. <!--]--></p><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="XcSq"></a><!--[--><!--]--><!-- --><!--[--><img src="df0f30ed-948a-4d45-ba6e-631b961a1a86.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="xD1V"></a><!--[--><!--]--><!--[-->↗️💸 Если хотите участвовать, нажимаете "↗️💸<strong>ОКАЗАТЬ помощь</strong>":<!--]--></p><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="1rJ1"></a><!--[--><!--]--><!-- --><!--[--><img src="eeb3a73f-85d4-4332-9a65-feaa0597d325.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="8TlF"></a><!--[--><!--]--><!--[-->1️⃣ Указываете сумму оказываемой помощи и валюту участия: рубли – если Вы из России, USDT – если из-за рубежа. Это у нас называется "интент" <em>(от англ. intent - "намерение")</em> - Ваше намерение оказать помощь.<!--]--></p><p><a name="hrSg"></a><!--[--><!--]--><!--[-->2️⃣ Через некоторое время бот начнет Вас стыковать с участниками, которые запрашивают помощь, и будет присылать Вам их реквизиты и суммы: от бота последовательно будут приходить <strong>поручения на разные суммы</strong> в рамках общей заявленной Вами суммы на оказание помощи, и Вам нужно будет переводить людям свои средства (через онлайн-банк или криптокошелек, в зависимости от валюты участия). В некоторых случаях может быть и одно поручение на всю сумму заявленной помощи.<!--]--></p><p><a name="ZMzW"></a><!--[--><!--]--><!--[-->3️⃣ После каждого перевода Вам нужно <strong>отметить поручение выполненным</strong>, нажав на соответствующую кнопку в боте, – у получателя появится возможность подтвердить Ваш перевод. Если получатель не подтверждает получение в течение 48 часов, открывайте "спор" и пишите по кнопке 🆘<strong><a href="https://t.me/mmm_help_bot?start=teletype"><!--[-->Поддержка<!--]--></a></strong>. Консультант может попросить написать ему в личку, - в этом случае будьте готовы предоставить консультанту видео с экрана телефона с онлайн- банком, подтверждающее отправку средств. Такое бывает крайне редко.<!--]--></p><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->‼️Если Вы не совершите перевод, но оформите в боте, что совершили его, то будете по умолчанию забанены Системой.<!--]--></p><!--]--></div><p><a name="Fpt1"></a><!--[--><!--]--><!--[-->4️⃣ После подтверждения со стороны получателя по каждому поручению бот будет присылать Вам сообщение с предложением конвертировать подтвержденные Мавро-0% в Мавро-20%. Это сразу же необходимо делать, иначе Ваши Мавро не будут "расти". <br/>🥶То же самое касается реферал-бонусов: по мере их разморозки бот Вам будет предлагать их конвертировать в Мавро-20% либо запросить по ним помощь.<!--]--></p><p><a name="GC9o"></a><!--[--><!--]--><!--[-->5️⃣ После того, как Вы отправите всю сумму заявленной Вами помощи по разным поручениям и конвертируете все свои Мавро-0% в Мавро-20%, – просто ждёте, пока Ваши абстрактные Мавро "подрастут". <!--]--></p><p><a name="dLit"></a><!--[--><!--]--><!--[-->↘️💰 В любой момент Вы можете запросить помощь уже с набежавшими процентами: полностью или частично "продать" свои абстрактные Мавро-20%. Для этого нажимаете кнопку "↘️💰<strong>ЗАПРОСИТЬ помощь</strong>".<!--]--></p><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="v64T"></a><!--[--><!--]--><!-- --><!--[--><img src="304bd587-6557-45dc-a6ff-0fd688f420f9.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="8ML5"></a><!--[--><!--]--><!--[-->1️⃣ Определитесь с суммой запрашиваемой помощи и конвертируйте абстрактные Мавро-20% в Мавро-0% на эту сумму. "Продать" можно только абстрактные Мавро-0%. Оставшиеся Мавро-20% продолжат свой "рост".   <!--]--></p><p><a name="7Nnv"></a><!--[--><!--]--><!--[-->2️⃣ Далее бот попросит указать свои точные реквизиты банка или криптокошелька. Внимательно заполните реквизиты. Вы можете указать несколько реквизитов и для удобства присвоить им названия.<!--]--></p><p><a name="d0rC"></a><!--[--><!--]--><!--[-->3️⃣ После оформления запроса помощи бот уже Ваши реквизиты и суммы будет отправлять по участникам, которые в настоящий момент оказывают помощь. <!--]--></p><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->‼️<strong> По каждому поручению ОПЕРАТИВНО подтверждайте получение в боте только после того, как средства реально поступят на Вашу карту или криптокошелек. </strong><!--]--></p><!--]--></div><p><a name="2fLm"></a><!--[--><!--]--><!--[-->Если отправитель укажет, что отправил деньги, но реально они Вам не поступили в течение 48 часов, – незамедлительно пишите по кнопке 🆘<strong><a href="https://t.me/mmm_help_bot?start=teletype"><!--[-->Поддержка<!--]--></a></strong>. Консультант может попросить написать ему в личку, – в этом случае будьте готовы предоставить консультанту видео с экрана телефона с онлайн-банком, подтверждающее, что деньги Вам не поступали. Такое бывает крайне редко.<!--]--></p><p><a name="bjFC"></a><!--[--><!--]--><!--[-->4️⃣ После того, как Вы получите всю сумму запрашиваемой помощи, Вам необходимо записать видеоотзыв (можно без лица, подробнее об этом прочтите в п.13 "<strong><a href="PRAVILA-po-punktam-chast-2.html"><!--[-->правил<!--]--></a></strong>") и отправить его в личку помощнику <strong><a href="https://t.me/GenXmanager1"><!--[-->@GenXmanager1<!--]--></a></strong> <br/>Инструкция, как записывать видеоотзывы по <strong><a href="videoguide.html"><!--[-->ССЫЛКЕ<!--]--></a></strong>.<!--]--></p><div class="callout callout-neutral"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->🤗 <strong>Приглашайте знакомых, будете за них получать реф-бонусы в абстрактных Мавро.</strong> <!--]--></p><!--]--></div><p><a name="eJ6j"></a><!--[--><!--]--><!--[--><strong><a href="https://bazamavrodi.com?start=teletype"><!--[-->BazaMavrodi.com<!--]--></a></strong> - Мы Можем Многое! Вместе✊🏼<!--]--></p><hr/><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><strong><a href="Main.html"><!--[-->НА ГЛАВНУЮ<!--]--></a></strong><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обращение Сергея Мавроди к властям России, 23 февраля 2009</title>
+  <style>
+:root {
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* === Макет === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.toc a:hover {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+.toc .toc-h3 {
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+  transition: all 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
+  background: var(--bg);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  position: relative;
+}
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 3em 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 2em 0;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
+  h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main class="content">
+      <article>
+        <h1>Обращение Сергея Мавроди к властям России, 23 февраля 2009</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="SXeq"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><hr/><p><a name="NgXt"></a><!--[--><!--]--><!--[--><em>Уважаемые власти!</em><!--]--></p><p><a name="Llil"></a><!--[--><!--]--><!--[--><em>Если вы с такой лёгкостью выбрасываете ежедневно (и совершенно бессмысленно, причём!) миллиарды и миллиарды долларов на поддержание рубля, то дайте мне всего лишь $10 млн. и предоставьте полную свободу действий, и я за три месяца свяжу денежную массу страны, остановлю инфляцию и сделаю российскую «валюту» действительно валютой. Уж, по крайней мере, гора-аздо привлекательнее и доллара, и евро. Вместе взятых. На порядок просто! Это я вам обещаю. Правда, называться она будет не рубль, а билет МММ, но какая разница?</em><!--]--></p><p><a name="rdi7"></a><!--[--><!--]--><!--[--><em>А ещё через год (максимум! если кризис будет углубляться нынешними темпами, то и гораздо раньше) приток валюты в страну станет таким, что вам её девать просто будет некуда. Этого я тоже смогу добиться. Тем более, в условиях мирового кризиса и полной растерянности и дезориентированности инвесторов. Это будет совсем несложно.</em><!--]--></p><p><a name="V8ov"></a><!--[--><!--]--><!--[--><em>Собственно, даже и этих-то несчастных $10 млн. мне реально давать не надо, достаточно всего лишь объявить, что вы мне их дали и предоставили полный карт-бланш. На практике для раскрутки системы вряд ли потребуется больше $1 млн. (Да и тот я вам через пару недель буквально верну.) Как видите, риска никакого. Особенно в сравнении с теми чудовищными совершенно суммами, которые вы выбрасываете сейчас просто на ветер без всякого видимого эффекта.</em><!--]--></p><p><a name="EgQd"></a><!--[--><!--]--><!--[--><em>Конечно, я не верю, что это моё предложение будет вами услышано (вы, по-моему, давно уже вообще ничего не слышите), но, тем не менее, − делаю его. Гражданский долг-с…</em><!--]--></p><p><a name="woFD"></a><!--[--><!--]--><!--[--><em>P.S. Если я не выполню хоть одного своего обещания из вышеприведённых − можете меня публично расстрелять. Как в Китае. Или на наш «Лебедь» или «Дельфин» на ПМЖ отправить. Хотите, я вам заранее все бумаги подпишу, если это необходимо?</em><!--]--></p><p><a name="Fy3J"></a><!--[--><!--]--><!--[--><em>P.P.S. Напоминаю на всякий случай. МММ существовало ведь всего полгода (!). 1 февраля 1994 года акции поступили в продажу, а уже 4 августа меня арестовали. За это время число вкладчиков достигло 15 млн., цены акций-билетов выросли в 127 раз и пр. и пр. Фактически бумаги МММ стали тогда в стране второй валютой и принимались почти во всех торговых точках наравне с долларом. Собственно, даже охотнее. Взятки, по крайней мере, у меня долларами брать отказывались. Только билетами МММ! И система вовсе не рухнула. Она была искусственно разрушена на пике своего подъёма. Ну, это-то вы и без меня прекрасно знаете.</em><!--]--></p><p><a name="cxPh"></a><!--[--><!--]--><!--[--><em>Иными словами, один раз почти всё обещанное выше я уже реализовал. На практике! А ведь действовал я тогда в условиях сверхагрессивной среды − постоянная травля всеми без исключения СМИ и непрерывная война против всех и вся. Если же мне развяжут руки и создадут режим максимального благоприятствования… (Ну, хотя бы мешать не станут!) Короче говоря, все мои предложения − вполне реальные. Более чем.</em><!--]--></p><hr/><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="1rvd"></a><!--[--><!--]--><!-- --><!--[--><img src="a8eb852b-8845-42ab-bc99-9f53c8056442.png"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Сергей Мавроди, 1994 год<!--]--></figcaption><!--]--><!--]--></figure><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>

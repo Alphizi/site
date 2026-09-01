@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>БОГ И ЛЮЦИФЕР -- комментарии к Библии Сергея Мавроди</title>
+  <style>
+:root {
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
+  }
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* === Макет === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+  background: var(--surface);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 110px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+}
+
+.sidebar::-webkit-scrollbar { width: 0px; }
+
+/* === Оглавление (TOC) === */
+.toc h3 {
+  margin-top: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
+.toc a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  display: block;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
+  line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+}
+.toc a:hover {
+  color: var(--text);
+  border-left-color: var(--accent);
+}
+.toc .toc-h3 {
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
+}
+
+/* === Типографика контента === */
+h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
+h1 {
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
+}
+h2 {
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
+a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
+  transition: all 0.2s;
+}
+a:hover {
+  border-bottom-color: var(--accent);
+  color: var(--accent-hover);
+}
+
+/* === Цитаты (Blockquote) === */
+blockquote {
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
+  background: var(--bg);
+  border-radius: 16px;
+  font-style: italic;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  position: relative;
+}
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
+blockquote p + p { margin-top: 1em; }
+
+/* === Медиа и Изображения === */
+figure { margin: 3em 0; text-align: center; }
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  margin: 2em 0;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+}
+.video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* === Блоки внимания (Callouts) === */
+.callout {
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
+  border-radius: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+}
+.callout p:last-child { margin-bottom: 0; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
+
+@media (prefers-color-scheme: dark) {
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background: var(--border);
+  margin: 3em 0;
+}
+
+/* === Адаптивность (Мобильные) === */
+@media (max-width: 992px) {
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
+  h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
+}
+  </style>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <main class="content">
+      <article>
+        <h1>БОГ И ЛЮЦИФЕР -- комментарии к Библии Сергея Мавроди</h1>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="rHXx"></a><!--[--><!--]--><!-- --><!--[--><img src="464f172c-83c6-4c5e-8be5-d66a390a4cd7.jpeg"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="mjqF"></a><!--[--><!--]--><!--[--><strong>Сказано в Книге Бытия (1:27–28, 2:7): </strong><!--]--></p><blockquote><a name="Vj34"></a><!--[--><!--]--><!--[-->«И сотворил Бог человека по образу Своему, по образу Божию сотворил его; мужчину и женщину сотворил их. И благословил их Бог, и сказал им Бог: плодитесь и размножайтесь.<!--]--></blockquote><blockquote><a name="aeBS"></a><!--[--><!--]--><!--[-->И создал господь Бог человека из праха земного, и вдунул в лицо его дыхание жизни, и стал человек душою живою».<!--]--></blockquote><p><a name="9weQ"></a><!--[--><!--]--><!--[-->Так были сотворены мы, люди. Сотворены Господом Богом. Но что было дальше?<!--]--></p><blockquote><a name="89bV"></a><!--[--><!--]--><!--[-->«И взял Господь Бог человека, которого создал, и поселил его в раю, в саду Едемском. И заповедал Господь Бог человеку, говоря: от всякого дерева в саду ты будешь есть, а от дерева познания добра и зла, не ешь от него, ибо в день, в который ты вкусишь от него, смертью умрешь». Книга Бытия 2:15–17.<!--]--></blockquote><p><a name="4xPy"></a><!--[--><!--]--><!--[-->И это была самая первая на земле ложь. И вошла она в мир именно через Бога. Считается, что Дьявол — главный лжец. Однако же нет! Первая ложь принадлежит Богу. Как, впрочем, и все в этом мире. Бог — его творец. Всего, что в нем есть, И хорошего, и плохого.<!--]--></p><p><a name="VjzO"></a><!--[--><!--]--><!--[-->Дьявол же не лгал.<!--]--></p><p><a name="HNVe"></a><!--[--><!--]--><!--[-->Ибо <em>«сказал змей Еве: нет, не умрете, но знает Бог, что в день, в который вы вкусите их, откроются глаза ваши, и вы будете, как боги, знающие добро и зло». </em><!--]--></p><p><a name="bF0t"></a><!--[--><!--]--><!--[-->И это была истина.<!--]--></p><p><a name="QKmU"></a><!--[--><!--]--><!--[-->Люди вкусили от дерева познания добра и зла, и открылись глаза у них, и они стали тем, что они есть сейчас. Стали людьми.<!--]--></p><p><a name="fF6F"></a><!--[--><!--]--><!--[-->Что все это означает?<!--]--></p><p><a name="BaDJ"></a><!--[--><!--]--><!--[-->Как мы видим, с самого начала в судьбе человека принимают самое активное участие две силы. Борются за него.<!--]--></p><p><a name="ITHE"></a><!--[--><!--]--><!--[-->Бог и Люцифер (он же змей, диавол, сатана, дракон, лукавый, вельзевул и пр.).<!--]--></p><p><a name="i1NQ"></a><!--[--><!--]--><!--[-->С одной стороны, Бог есть отец наш, творец, именно Он нас создал, вдохнул в нас жизнь, Ему мы обязаны тем, что мы вообще есть, что мы существуем; но, с другой — если бы не Люцифер, мы до сих пор так и бродили бы нагие в раю. Глупые и счастливые.<!--]--></p><p><a name="yWHw"></a><!--[--><!--]--><!--[-->Литература и искусство, наука, техника — книги и театр, кино, компьютеры и телевизоры, всё, что мы сегодня видим вокруг, все достижения современной цивилизации — всё это стало возможным только благодаря знанию, а значит, благодаря именно Люциферу. Благодаря тому, что Он убедил в своё время прародительницу нашу Еву нарушить запрет Бога и вкусить от дерева познания.<!--]--></p><p><a name="1YTw"></a><!--[--><!--]--><!--[-->Создавая нас, Бог вовсе не планировал сделать нас такими, какими мы стали сегодня. Это произошло не согласно, а вопреки Его воле и Его первоначальным замыслам. Благодаря исключительно вмешательству Люцифера.<!--]--></p><p><a name="dPEJ"></a><!--[--><!--]--><!--[-->Иными словами, если Бог — наш физический отец, отец по крови; то Люцифер, несомненно, наш отец духовный. Именно Ему и никому другому обязаны мы тем, что мы сегодня стали именно такими, какими мы стали. И отрекаться от Люцифера, проклинать Его — значит, отрекаться от самих себя. Отрекаться от знания, от прогресса.<!--]--></p><p><a name="wJV5"></a><!--[--><!--]--><!--[-->Да, собственно, и отречение-то это стало возможным только благодаря опять-таки все тому же Люциферу. Благодаря тому, что мы вкусили плодов от дерева познания и стали способны теперь различать добро и зло. До этого и Бог, и Дьявол были для нас, по всей видимости, одинаково хорошими. Просто частью окружающей нас природы.<!--]--></p><p><a name="xurg"></a><!--[--><!--]--><!--[-->Таким образом, получается, что, проклиная Люцифера, мы кусаем руку, которая нас кормит, дает нам знание. Мы обращаем это знание против самого учителя, называя Его злом.<!--]--></p><p><a name="xxP0"></a><!--[--><!--]--><!--[-->Но дело даже не в этом. Не в морально-этической стороне проблемы. Давайте взглянем на вещи чисто практически и зададим себе наконец совершенно простой и естественный вопрос. Который, тем не менее, все обычно как-то упускают из вида.<!--]--></p><p><a name="2sk2"></a><!--[--><!--]--><!--[--><strong>А почему, собственно, мы считаем, что Люцифер — это зло?</strong> Что плохого Он нам сделал? Да-да! Что?! Хорошее — да, Он дал людям знание, а вот что Он сделал нам плохого? В Библии, между прочим, про это ни слова.<!--]--></p><p><a name="Vdmu"></a><!--[--><!--]--><!--[-->Единственные описанные там деяния Люцифера, это: искушение Евы, испытание Иова, искушение Христа и Апокалипсис. Вот, по сути, и всё.<!--]--></p><p><a name="2Ay2"></a><!--[--><!--]--><!--[-->Ну, об искушениях Христа и Апокалипсисе мы ещё поговорим отдельно, это особая статья, а вот что до всего остального…<!--]--></p><p><a name="mQ6N"></a><!--[--><!--]--><!--[-->Искушение Евы мы уже обсуждали выше, и так ли уж в итоге плохо, что люди все же на него поддались и отведали плодов с дерева познания — решайте сами.<!--]--></p><p><a name="rkCH"></a><!--[--><!--]--><!--[-->Что же касается испытания Иова, то оно ведь было проведено с согласия Бога. Прямо санкционировано Им.<!--]--></p><blockquote><a name="G72k"></a><!--[--><!--]--><!--[-->«И сказал Господь Сатане: вот, все, что у него, в руке твоей, только на него не простирай руки твоей». Книга Иова 1:12.<!--]--></blockquote><p><a name="r9bU"></a><!--[--><!--]--><!--[--><strong>Это был своего рода спор Бога и Люцифера. Так что это не в счет. </strong><!--]--></p><p><a name="WKMD"></a><!--[--><!--]--><!--[-->Так что же все-таки плохого, спрашивается, сделал нам Люцифер? Да и вообще, все эти слова, вся эта сугубо негативная терминология: «искушение», «испытание» … — всё это на совести авторов Библии, апологетов Господа Бога. Люцифер же и Бог находятся друг с другом в явной и очевидной оппозиции, они противники, и это следует учитывать.<!--]--></p><p><a name="GHpO"></a><!--[--><!--]--><!--[--><strong>И если мы хотим беспристрастности и объективности, то и к формулировкам Библии, во всем, что касается Люцифера, следует относиться с крайней осторожностью. Ведь если бы Библию писали апологеты Люцифера, то, вероятно, и поступки Его оценивались бы в ней совершенно иначе. И назывались бы они совершенно по-другому. Равно как и поступки самого Господа Бога. </strong><!--]--></p><p><a name="KyNZ"></a><!--[--><!--]--><!--[--><strong>Истина же, как обычно, посередине.</strong> <strong>Мы — люди, у нас есть разум, и мы сами можем взвешивать, анализировать и оценивать факты и делать выводы. Свои собственные. А если нет — то, как же мы сможем тогда отличить добро от зла? И чем же мы тогда отличаемся от животных? </strong><!--]--></p><p><a name="DZmj"></a><!--[--><!--]--><!--[-->С точки зрения же разума, с точки зрения логики и здравого смысла ситуация выглядит так. С точки зрения же разума, с точки зрения логики и здравого смысла ситуация выглядит так.<!--]--></p><p><a name="5O95"></a><!--[--><!--]--><!--[-->Есть две силы, которые борются за человека, и каждая предлагает свой путь.<!--]--></p><p><a name="qldc"></a><!--[--><!--]--><!--[--><strong>Бог:</strong> Я вас создал, дал вам жизнь. Плодитесь и размножайтесь!<!--]--></p><p><a name="P8RF"></a><!--[--><!--]--><!--[-->А за это вы должны Меня во всем слушаться, стать Моими рабами, рабами божьими.<!--]--></p><p><a name="YDHx"></a><!--[--><!--]--><!--[--><strong>Люцифер:</strong> Человек — не животное, не домашний скот! Нельзя делать из человека раба!<!--]--></p><p><a name="IdF8"></a><!--[--><!--]--><!--[-->Даже раба божьего.<!--]--></p><p><a name="upPR"></a><!--[--><!--]--><!--[-->Да, Бог создал человека. Он его отец. Но не вечно дети живут с родителями.<!--]--></p><p><a name="Dqdz"></a><!--[--><!--]--><!--[-->Они вырастают и сами выбирают свой путь.<!--]--></p><p><a name="zvF5"></a><!--[--><!--]--><!--[--><strong>Бог:</strong> Слушайтесь Меня, и Я буду вас кормить. Вы будете жить в раю, без трудов и забот.<!--]--></p><p><a name="f14a"></a><!--[--><!--]--><!--[--><strong>Люцифер:</strong> Вы будете свободными людьми и сами всё возьмете! Сами всего добьетесь! Без чьей-либо помощи.<!--]--></p><p><a name="Gy5X"></a><!--[--><!--]--><!--[--><strong>Бог:</strong> Не мудрствуйте, будьте просты как дети, много знаний — много печали.<!--]--></p><p><a name="NfAz"></a><!--[--><!--]--><!--[--><strong>Люцифер:</strong> Учитесь, познавайте, вникайте! Станьте как боги.<!--]--></p><p><a name="gF2V"></a><!--[--><!--]--><!--[-->Вот два пути. Какой же из них нам выбрать? Нам, людям?<!--]--></p><hr/><p><a name="78CR"></a><!--[--><!--]--><!--[-->Все "Комментарии к Библии" Сергея Мавроди в авторском издании по <a href="https://drive.google.com/drive/folders/1JKlIBRzPbQDipUYHSGk0cXfHXHRyCuAo?usp=share_link"><!--[--><strong>ССЫЛКЕ</strong><!--]--></a><!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+      </article>
+    </main>
+  </div>
+</body>
+</html>
