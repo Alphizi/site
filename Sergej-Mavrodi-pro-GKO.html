@@ -6,26 +6,28 @@
   <title>Сергей Мавроди про ГКО</title>
   <style>
 :root {
-  --bg: #f9f7f2;
-  --surface: #ffffff;
-  --text: #1f1f1f;
-  --text-muted: #5e5952;
-  --accent: #2a4a6f;
-  --accent-hover: #1e3552;
-  --border: #d9d4c8;
-  --shadow: rgba(42, 74, 111, 0.06);
+  --bg: #FDFBF7;
+  --surface: #FFFFFF;
+  --text: #2D2B2A;
+  --text-muted: #7A7571;
+  --accent: #D97736;
+  --accent-hover: #BF6226;
+  --border: #EAE6DF;
+  --shadow: rgba(45, 43, 42, 0.05);
+  --nav-bg: rgba(253, 251, 247, 0.9);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #1a1816;
-    --surface: #22201d;
-    --text: #e8e4d9;
-    --text-muted: #a39a8c;
-    --accent: #8aa4c2;
-    --accent-hover: #a3b8d1;
-    --border: #3a3630;
-    --shadow: rgba(0, 0, 0, 0.25);
+    --bg: #1A1918;
+    --surface: #242220;
+    --text: #EBE9E4;
+    --text-muted: #A39E99;
+    --accent: #E08C53;
+    --accent-hover: #F0A06C;
+    --border: #383533;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --nav-bg: rgba(26, 25, 24, 0.9);
   }
 }
 
@@ -33,20 +35,86 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.75;
+  line-height: 1.6;
   font-size: 18px;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: antialiased;
 }
 
+/* === Top Nav === */
+.top-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+.nav-logo a {
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-decoration: none;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+  border: none;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+}
+
+.btn-register {
+  background: var(--accent);
+  color: #fff !important;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: background 0.2s, transform 0.1s;
+  border: none !important;
+  display: inline-block;
+}
+
+.btn-register:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
 /* === Макет === */
 .container {
-  max-width: 1140px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px 80px;
   display: flex;
-  gap: 40px;
+  gap: 60px;
   align-items: flex-start;
 }
 
@@ -54,83 +122,76 @@ body {
   flex: 1;
   min-width: 0;
   background: var(--surface);
-  padding: 50px 70px;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px var(--shadow);
+  padding: 60px 80px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px var(--shadow);
   border: 1px solid var(--border);
 }
 
 .sidebar {
-  width: 300px;
+  width: 280px;
   flex-shrink: 0;
   position: sticky;
-  top: 40px;
-  max-height: calc(100vh - 80px);
+  top: 110px;
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
 }
 
-/* Скрываем скроллбар в сайдбаре для красоты */
 .sidebar::-webkit-scrollbar { width: 0px; }
 
 /* === Оглавление (TOC) === */
-.toc {
-  background: var(--surface);
-  padding: 24px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 20px var(--shadow);
-}
 .toc h3 {
   margin-top: 0;
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--text-muted);
-  margin-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 10px;
+  margin-bottom: 20px;
 }
-.toc ul { list-style: none; padding: 0; margin: 0; }
-.toc li { margin-bottom: 10px; }
+.toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--border); }
+.toc li { margin-bottom: 0; }
 .toc a {
   color: var(--text-muted);
   text-decoration: none;
   font-size: 0.95rem;
   display: block;
-  transition: color 0.2s, padding-left 0.2s;
+  padding: 8px 0 8px 16px;
+  transition: all 0.2s;
   line-height: 1.4;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
 }
 .toc a:hover { 
-  color: var(--accent); 
-  padding-left: 4px;
+  color: var(--text);
+  border-left-color: var(--accent);
 }
 .toc .toc-h3 { 
-  padding-left: 15px; 
-  font-size: 0.85rem; 
-  margin-top: -4px;
+  font-size: 0.85rem;
+}
+.toc .toc-h3 a {
+  padding-left: 24px;
 }
 
 /* === Типографика контента === */
 h1, h2, h3, h4 { color: var(--text); font-weight: 700; margin-top: 0; }
 h1 { 
-  font-size: 2.6rem; 
-  line-height: 1.15; 
-  margin-bottom: 1.2em; 
-  letter-spacing: -0.02em;
+  font-size: 2.8rem;
+  line-height: 1.1;
+  margin-bottom: 1em;
+  letter-spacing: -0.03em;
 }
 h2 { 
-  font-size: 1.8rem; 
-  margin: 1.8em 0 0.8em; 
-  border-bottom: 2px solid var(--border); 
-  padding-bottom: 0.3em; 
+  font-size: 1.7rem;
+  margin: 2em 0 1em;
+  letter-spacing: -0.01em;
 }
-h3 { font-size: 1.4rem; margin: 1.5em 0 0.6em; }
-p { margin: 0 0 1.2em; }
+h3 { font-size: 1.3rem; margin: 1.8em 0 0.8em; }
+p { margin: 0 0 1.5em; color: var(--text); }
 a { 
   color: var(--accent); 
   text-decoration: none; 
   font-weight: 500; 
-  border-bottom: 1px solid transparent; 
+  border-bottom: 1px solid rgba(217, 119, 54, 0.3);
   transition: all 0.2s; 
 }
 a:hover { 
@@ -140,46 +201,34 @@ a:hover {
 
 /* === Цитаты (Blockquote) === */
 blockquote {
-  margin: 2em 0;
-  padding: 1.5em 2em 1.5em 3.5em;
+  margin: 2.5em 0;
+  padding: 2em 2.5em;
   background: var(--bg);
-  border-left: 4px solid var(--accent);
-  border-radius: 0 12px 12px 0;
+  border-radius: 16px;
   font-style: italic;
   color: var(--text-muted);
+  border: 1px solid var(--border);
   position: relative;
 }
-blockquote::before {
-  content: "“";
-  font-size: 5em;
-  position: absolute;
-  top: -15px;
-  left: 10px;
-  color: var(--border);
-  font-family: Georgia, serif;
-  line-height: 1;
-}
-blockquote p { position: relative; z-index: 1; margin-bottom: 0; }
+blockquote p { margin-bottom: 0; font-size: 1.1rem; line-height: 1.8; }
 blockquote p + p { margin-top: 1em; }
 
 /* === Медиа и Изображения === */
-figure { margin: 2.5em 0; text-align: center; }
+figure { margin: 3em 0; text-align: center; }
 figure img { 
   max-width: 100%; 
   height: auto; 
-  border-radius: 8px; 
-  box-shadow: 0 4px 16px var(--shadow); 
+  border-radius: 12px;
 }
-figcaption { margin-top: 0.8em; font-size: 0.9em; color: var(--text-muted); }
+figcaption { margin-top: 1em; font-size: 0.9em; color: var(--text-muted); }
 
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
   height: 0;
-  margin: 1.5em 0;
+  margin: 2em 0;
   background: #000;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px var(--shadow);
+  border-radius: 16px;
   overflow: hidden;
 }
 .video-container iframe {
@@ -192,51 +241,69 @@ figcaption { margin-top: 0.8em; font-size: 0.9em; color: var(--text-muted); }
 
 /* === Блоки внимания (Callouts) === */
 .callout {
-  margin: 2em 0;
-  padding: 1.5em 1.8em;
+  margin: 2.5em 0;
+  padding: 1.5em 2em;
   border-radius: 12px;
-  border-left: 5px solid var(--accent);
   background: var(--bg);
-  box-shadow: 0 2px 12px var(--shadow);
+  border: 1px solid var(--border);
 }
 .callout p:last-child { margin-bottom: 0; }
-.callout-blue   { border-left-color: #4a6fa5; background: #e8eef7; }
-.callout-amber  { border-left-color: #b38b4d; background: #f5f0e6; }
-.callout-purple { border-left-color: #9b6b8a; background: #f7eef4; }
-.callout-green  { border-left-color: #4a8a6f; background: #e8f3ed; }
-.callout-neutral { border-left-color: #6b6257; background: #f0e9dc; }
+.callout-blue   { background: rgba(74, 111, 165, 0.05); border-color: rgba(74, 111, 165, 0.2); }
+.callout-amber  { background: rgba(217, 119, 54, 0.05); border-color: rgba(217, 119, 54, 0.2); }
+.callout-purple { background: rgba(155, 107, 138, 0.05); border-color: rgba(155, 107, 138, 0.2); }
+.callout-green  { background: rgba(74, 138, 111, 0.05); border-color: rgba(74, 138, 111, 0.2); }
+.callout-neutral { background: var(--bg); border-color: var(--border); }
 
 @media (prefers-color-scheme: dark) {
-  .callout-blue   { background: #1e2a3a; border-left-color: #7aa0d1; }
-  .callout-amber  { background: #2f2a1f; border-left-color: #d4b37a; }
-  .callout-purple { background: #2a2430; border-left-color: #c48fb3; }
-  .callout-green  { background: #1f2a24; border-left-color: #7ab89a; }
-  .callout-neutral { background: #2c2a26; border-left-color: #a89f90; }
+  .callout-blue   { background: rgba(122, 160, 209, 0.1); border-color: rgba(122, 160, 209, 0.2); }
+  .callout-amber  { background: rgba(224, 140, 83, 0.1); border-color: rgba(224, 140, 83, 0.2); }
+  .callout-purple { background: rgba(196, 143, 179, 0.1); border-color: rgba(196, 143, 179, 0.2); }
+  .callout-green  { background: rgba(122, 184, 154, 0.1); border-color: rgba(122, 184, 154, 0.2); }
 }
 
 hr {
   border: none;
-  height: 2px;
+  height: 1px;
   background: var(--border);
   margin: 3em 0;
 }
 
 /* === Адаптивность (Мобильные) === */
 @media (max-width: 992px) {
-  .container { flex-direction: column-reverse; padding: 20px 16px; }
-  .sidebar { width: 100%; position: static; margin-top: 20px; }
-  .content { padding: 40px 24px; }
+  .container { flex-direction: column-reverse; padding: 20px 16px; gap: 40px; }
+  .sidebar { width: 100%; position: static; margin-top: 0; }
+  .content { padding: 40px 24px; border-radius: 16px; }
   h1 { font-size: 2.2rem; }
+
+  .nav-container { flex-wrap: wrap; height: auto; padding: 15px 20px; gap: 15px; }
+  .nav-links { flex-wrap: wrap; gap: 12px; width: 100%; order: 3; }
 }
   </style>
 </head>
 <body>
+
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html">МММ 2.0</a>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Главная</a>
+        <a href="PREDUPREZHDENIE.html">Предупреждение</a>
+        <a href="PRAVILA.html">Правила</a>
+        <a href="idea.html">Идеология</a>
+        <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html">Публицистика</a>
+        <a href="https://t.me/MavroRebot?start=gitstatic" class="btn-register" target="_blank">Регистрация</a>
+      </nav>
+    </div>
+  </header>
+
   <div class="container">
     
     <main class="content">
       <article>
         <h1>Сергей Мавроди про ГКО</h1>
-        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="IoWl"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><hr/><p><a name="VbWB"></a><!--[--><!--]--><!--[-->Дело в том, что идея <a href="https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D1%81%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D0%B5_%D0%BE%D0%B1%D0%BB%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8"><!--[--><strong>ГКО</strong><!--]--></a> (государственные краткосрочные облигации, выпускавшиеся в России в 90-е годы. Обрушение рынка ГКО в 1998 году сразу обесценило рубль в три раза), идея выпуска сверхдоходных государственных ценных бумаг, была впрямую позаимствована в свое время властями у меня, у МММ. Начальник департамента ценных бумаг Минфина Белла Златкис, главный автор и разработчик системы ГКО, неоднократно лично консультировалась тогда (в 1994 году) со мной по поводу мельчайших деталей и нюансов функционирования системы МММ. Правда, не говоря мне, зачем.<!--]--></p><p><a name="UnZD"></a><!--[--><!--]--><!--[-->Результат известен. В августе 1994 года арестовали меня, а уже в октябре того же года появились ГКО.<!--]--></p><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="TDvK"></a><!--[--><!--]--><!-- --><!--[--><img src="33bf76aa-e8f9-4672-89cd-05ccf89a65e2.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="yvHN"></a><!--[--><!--]--><!--[-->К сожалению, основной идеи МММ власти тогда так и не поняли. На самом деле, как я уже много раз заявлял, МММ – это вовсе не банальная пирамида типа всяких там «Хопров», «Тибетов», РДС и пр. Сходство тут чисто внешнее. Кит тоже похож на рыбу, но между ними миллионы лет эволюции.<!--]--></p><p><a name="lyXA"></a><!--[--><!--]--><!--[-->В действительности же, <a href="social.html"><!--[--><strong>МММ – это принципиально новая финансовая система</strong><!--]--></a>. Причем, довольно сложная, и разобраться в ней до конца власти не смогли. Вероятно, они слишком торопились, стремились побыстрее скопировать сам принцип работы МММ, но в то же время уйти от узнаваемости. При этом они выплеснули с водой и ребенка, не сумели отличить главного от второстепенного и в результате совершили решающую ошибку. Ставшую впоследствии роковой и погубившую в итоге всю систему.<!--]--></p><p><a name="igQZ"></a><!--[--><!--]--><!--[-->А именно, они установили фиксированные сроки выплат. Это был по сути важнейший и принципиальнейший момент! У меня ведь ничего подобного никогда не было. В МММ акции и билеты выкупались всегда и в любое время. То есть в системе не было критических временных точек, выплаты были равномерно распределены во времени.<!--]--></p><p><a name="4KhT"></a><!--[--><!--]--><!--[-->А значит, манипулируя доходностью (темпом роста цен), интенсивность денежных потоков можно было легко регулировать. (Скажем, если начиналась паника, и сброс превышал некую критическую отметку, я обычно просто повышал доходность, и ситуация быстро нормализовывалась.) Что, в свою очередь, делало всю систему в целом максимально гибкой и способной быстро и адекватно реагировать на любые внешние воздействия. Поэтому-то власти долгое время так и не могли ничего с ней поделать, и потребовалось арестовать меня, чтобы ее разрушить.<!--]--></p><p><a name="INM3"></a><!--[--><!--]--><!--[-->Ничего этого разработчики ГКО вообще не поняли, и просто установили фиксированные сроки выплат по своим бумагам: один месяц, три месяца и т.п. Тем самым, полностью лишив себя возможности хоть как-то маневрировать, влиять на ситуацию и фактически сразу же загнав себя в угол.<!--]--></p><p><a name="wFkG"></a><!--[--><!--]--><!--[-->Ведь с течением времени долг неуклонно накапливался. Причем, очень быстро. Да, завтра тебе принесут еще в десять раз больше денег, но сегодня надо обязательно расплатиться по старым долгам. А из чего расплачиваться, если не из чего! Где брать деньги?<!--]--></p><p><a name="p6A5"></a><!--[--><!--]--><!--[-->Естественно, рано или поздно наступает такой момент, когда аккумулировать необходимые суммы для выплат уже не удается. И все сразу рушится.<!--]--></p><p><a name="kEzY"></a><!--[--><!--]--><!--[-->Итак, фиксированные сроки выплат – это и была основная фатальная ошибка разработчиков ГКО. Были, впрочем, и другие, хоть и менее важные, но тоже очень серьезные.<!--]--></p><p><a name="mMbw"></a><!--[--><!--]--><!--[-->Во-первых, следовало сразу же осознать, что ГКО – это безусловно главная и чуть ли не единственная на тот момент статья дохода в бюджете. Статья совершенно исключительной важности! А потому следовало немедленно, с самого начала придать системе ГКО соответствующий статус. Сделать ее приоритетной.<!--]--></p><p><a name="uevG"></a><!--[--><!--]--><!--[-->В частности, необходимо было в первую очередь создать единый контролирующий орган, занимающийся всеми вопросами ГКО и наделить его самыми широкими полномочиями. А лучше всего, вообще подчинить его непосредственно президенту.<!--]--></p><p><a name="qFjw"></a><!--[--><!--]--><!--[-->Отсутствие такого органа привело к тому, что различные ведомства реализовывали свои узковедомственные цели в ущерб общегосударственным интересам. Ситуация вообще доходила до абсурда! В частности, тот же ЦБ РФ активно играл в свое время на рынке ГКО.<!--]--></p><p><a name="PYPj"></a><!--[--><!--]--><!--[-->Это все равно, как если бы вы брали деньги в долг у самого себя под высокий процент, потом в срок самому себе их вместе с процентами возвращали и радовались при этом, как здорово вы, оказывается, на всей этой замечательной операции заработали! И как же вы только раньше до этого не догадались!<!--]--></p><p><a name="TFz4"></a><!--[--><!--]--><!--[-->Кроме того, всю техническую информацию по ГКО (объем выпусков и прочее) следовало сделать с самого начала безусловно закрытой для широкой публики. Чтобы не нервировать понапрасну инвесторов астрономическими суммами потенциальных долгов. Реально при нормальной работе они никакого значения не имеют, но объяснить всем это решительно невозможно.<!--]--></p><p><a name="UIk9"></a><!--[--><!--]--><!--[-->Ну и т.д. Были там и еще кое-какие ляпы и просчеты, но сейчас, все это уже не суть важно. Что толку теперь ворошить старое, рыться в обломках?<!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="Main.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
+        <article class="article__content text" itemprop="articleBody"><!--[--><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="index.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="IoWl"></a><!--[--><!--]--><!-- --><!--[--><img src="41227952-4a3e-4ba0-809a-3ebfaf43ec51.jpeg"/><!--]--><!--[--><!--[--><figcaption itemprop="description"><!-- --><!--[--><!--]--><!--[-->Живая структурированная сеть, основанная на доверии и взаимопомощи; абсолютно децентрализованная автоматизированная система, в которой телеграм-бот стыкует участников напрямую друг с другом; отсутствие единых баз данных, серверов и центров управления. Тотальная распылённость!<!--]--></figcaption><!--]--><!--]--></figure><hr/><p><a name="VbWB"></a><!--[--><!--]--><!--[-->Дело в том, что идея <a href="https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D1%81%D1%83%D0%B4%D0%B0%D1%80%D1%81%D1%82%D0%B2%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5_%D0%BA%D1%80%D0%B0%D1%82%D0%BA%D0%BE%D1%81%D1%80%D0%BE%D1%87%D0%BD%D1%8B%D0%B5_%D0%BE%D0%B1%D0%BB%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8"><!--[--><strong>ГКО</strong><!--]--></a> (государственные краткосрочные облигации, выпускавшиеся в России в 90-е годы. Обрушение рынка ГКО в 1998 году сразу обесценило рубль в три раза), идея выпуска сверхдоходных государственных ценных бумаг, была впрямую позаимствована в свое время властями у меня, у МММ. Начальник департамента ценных бумаг Минфина Белла Златкис, главный автор и разработчик системы ГКО, неоднократно лично консультировалась тогда (в 1994 году) со мной по поводу мельчайших деталей и нюансов функционирования системы МММ. Правда, не говоря мне, зачем.<!--]--></p><p><a name="UnZD"></a><!--[--><!--]--><!--[-->Результат известен. В августе 1994 года арестовали меня, а уже в октябре того же года появились ГКО.<!--]--></p><figure class="m_column" itemscope="" itemtype="http://schema.org/ImageObject"><a name="TDvK"></a><!--[--><!--]--><!-- --><!--[--><img src="33bf76aa-e8f9-4672-89cd-05ccf89a65e2.png"/><!--]--><!--[--><!--[--><!-- --><!--]--><!--]--></figure><p><a name="yvHN"></a><!--[--><!--]--><!--[-->К сожалению, основной идеи МММ власти тогда так и не поняли. На самом деле, как я уже много раз заявлял, МММ – это вовсе не банальная пирамида типа всяких там «Хопров», «Тибетов», РДС и пр. Сходство тут чисто внешнее. Кит тоже похож на рыбу, но между ними миллионы лет эволюции.<!--]--></p><p><a name="lyXA"></a><!--[--><!--]--><!--[-->В действительности же, <a href="social.html"><!--[--><strong>МММ – это принципиально новая финансовая система</strong><!--]--></a>. Причем, довольно сложная, и разобраться в ней до конца власти не смогли. Вероятно, они слишком торопились, стремились побыстрее скопировать сам принцип работы МММ, но в то же время уйти от узнаваемости. При этом они выплеснули с водой и ребенка, не сумели отличить главного от второстепенного и в результате совершили решающую ошибку. Ставшую впоследствии роковой и погубившую в итоге всю систему.<!--]--></p><p><a name="igQZ"></a><!--[--><!--]--><!--[-->А именно, они установили фиксированные сроки выплат. Это был по сути важнейший и принципиальнейший момент! У меня ведь ничего подобного никогда не было. В МММ акции и билеты выкупались всегда и в любое время. То есть в системе не было критических временных точек, выплаты были равномерно распределены во времени.<!--]--></p><p><a name="4KhT"></a><!--[--><!--]--><!--[-->А значит, манипулируя доходностью (темпом роста цен), интенсивность денежных потоков можно было легко регулировать. (Скажем, если начиналась паника, и сброс превышал некую критическую отметку, я обычно просто повышал доходность, и ситуация быстро нормализовывалась.) Что, в свою очередь, делало всю систему в целом максимально гибкой и способной быстро и адекватно реагировать на любые внешние воздействия. Поэтому-то власти долгое время так и не могли ничего с ней поделать, и потребовалось арестовать меня, чтобы ее разрушить.<!--]--></p><p><a name="INM3"></a><!--[--><!--]--><!--[-->Ничего этого разработчики ГКО вообще не поняли, и просто установили фиксированные сроки выплат по своим бумагам: один месяц, три месяца и т.п. Тем самым, полностью лишив себя возможности хоть как-то маневрировать, влиять на ситуацию и фактически сразу же загнав себя в угол.<!--]--></p><p><a name="wFkG"></a><!--[--><!--]--><!--[-->Ведь с течением времени долг неуклонно накапливался. Причем, очень быстро. Да, завтра тебе принесут еще в десять раз больше денег, но сегодня надо обязательно расплатиться по старым долгам. А из чего расплачиваться, если не из чего! Где брать деньги?<!--]--></p><p><a name="p6A5"></a><!--[--><!--]--><!--[-->Естественно, рано или поздно наступает такой момент, когда аккумулировать необходимые суммы для выплат уже не удается. И все сразу рушится.<!--]--></p><p><a name="kEzY"></a><!--[--><!--]--><!--[-->Итак, фиксированные сроки выплат – это и была основная фатальная ошибка разработчиков ГКО. Были, впрочем, и другие, хоть и менее важные, но тоже очень серьезные.<!--]--></p><p><a name="mMbw"></a><!--[--><!--]--><!--[-->Во-первых, следовало сразу же осознать, что ГКО – это безусловно главная и чуть ли не единственная на тот момент статья дохода в бюджете. Статья совершенно исключительной важности! А потому следовало немедленно, с самого начала придать системе ГКО соответствующий статус. Сделать ее приоритетной.<!--]--></p><p><a name="uevG"></a><!--[--><!--]--><!--[-->В частности, необходимо было в первую очередь создать единый контролирующий орган, занимающийся всеми вопросами ГКО и наделить его самыми широкими полномочиями. А лучше всего, вообще подчинить его непосредственно президенту.<!--]--></p><p><a name="qFjw"></a><!--[--><!--]--><!--[-->Отсутствие такого органа привело к тому, что различные ведомства реализовывали свои узковедомственные цели в ущерб общегосударственным интересам. Ситуация вообще доходила до абсурда! В частности, тот же ЦБ РФ активно играл в свое время на рынке ГКО.<!--]--></p><p><a name="PYPj"></a><!--[--><!--]--><!--[-->Это все равно, как если бы вы брали деньги в долг у самого себя под высокий процент, потом в срок самому себе их вместе с процентами возвращали и радовались при этом, как здорово вы, оказывается, на всей этой замечательной операции заработали! И как же вы только раньше до этого не догадались!<!--]--></p><p><a name="TFz4"></a><!--[--><!--]--><!--[-->Кроме того, всю техническую информацию по ГКО (объем выпусков и прочее) следовало сделать с самого начала безусловно закрытой для широкой публики. Чтобы не нервировать понапрасну инвесторов астрономическими суммами потенциальных долгов. Реально при нормальной работе они никакого значения не имеют, но объяснить всем это решительно невозможно.<!--]--></p><p><a name="UIk9"></a><!--[--><!--]--><!--[-->Ну и т.д. Были там и еще кое-какие ляпы и просчеты, но сейчас, все это уже не суть важно. Что толку теперь ворошить старое, рыться в обломках?<!--]--></p><hr/><div class="callout callout-purple"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Вернуться в <a href="Publicistika-Sergeya-Mavrodi-2008-2018-gody.html"><!--[--><strong>раздел "Публицистика Сергея Мавроди"</strong><!--]--></a><!--]--></p><!--]--></div><div class="callout callout-blue"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[-->Регистрация в <strong><a href="https://t.me/MavroRebot?start=teletype"><!--[-->телеграм-боте<!--]--></a></strong><!--]--></p><!--]--></div><div class="callout callout-amber"><!-- --><!--[--><!--]--><!--[--><p><!--[--><!--]--><!--[--><a class="" href="index.html"><!--[--><strong>НА ГЛАВНУЮ</strong><!--]--></a><!--]--></p><!--]--></div><!--]--></article>
       </article>
     </main>
   </div>
